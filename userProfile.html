@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Emovieplan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <style type="text/css">
+    img{
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+    }
+    .form{
+      background-image: conic-gradient(from 30deg,grey,white); 
+    }
+    .form:hover{
+      background-image: conic-gradient(from 200deg,white,pink,grey); 
+    }
+    .form h1{
+      text-align: center;
+      color: #78e08f;
+      font-family:Times New Roman;
+    }
+    a{
+      padding: 5px 10px;
+      background-color: #78e08f;
+      border-radius:20px 0px 0px 20px;
+      text-decoration: none;
+      font-size: 17px;
+      color: white;
+    }
+    button{
+      width: 120px;
+      height: 45px;
+      background-color: #0c2461;
+      border-radius: 25px;
+      color: white;
+
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class=" form col-md-5 shadow p-2 p-md-3">
+          <a href="login.html">back</a>
+          <h1 class="text-black">Emovieplan plus</h1>
+          <h1>your profile</h1>
+          <div class="profile">
+            <div class="profile-photo">
+              <img src="profile.jpeg" id="photo">
+              <input type="file" class="file" id="select-photo">
+            </div>
+            <h3 id="name">Name :</h3>
+            <h3 id="phone">Phone :</h3>
+            <h3 id="email">Email :</h3>
+          </div>
+          <button onclick="(logout())">Log out</button>
+        </div>  
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      document.getElementById("name").innerHTML  += sessionStorage.getItem("Name");
+      document.getElementById("phone").innerHTML += sessionStorage.getItem("Phone");
+      document.getElementById("email").innerHTML += sessionStorage.getItem("Email");
+      function logout(){
+        window.location.href = "login.html";
+      }
+      let selectPhoto = document.getElementById("select-photo").value;
+      document.getElementsByTagName("img")[0].innerHTML = selectPhoto
+    </script>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Emovieplan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<style type="text/css">
+    .form{
+      background-image: conic-gradient(from 30deg,grey,white); 
+    }
+    .form:hover{
+      background-image: conic-gradient(from 200deg,white,pink,grey); 
+    }
+    .form h1{
+      text-align: center;
+      color: #78e08f;
+      font-family:Times New Roman;
+    }
+    input{
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 7px 4px;
+      border-radius: 10px;
+      border:0;
+      font-size: 18px;
+    }
+    p{
+      text-align: center;
+      font-size: 15px;
+    }
+    p a{
+      padding: 5px 10px;
+      background-color: #78e08f;
+      border-radius: 13px;
+      text-decoration: none;
+      font-size: 14px;
+      color: white;
+    }
+    button{
+      width: 120px;
+      height: 45px;
+      background-color: #0c2461;
+      border-radius: 25px;
+      color: white;
+
+    }
+  </style>
+<body>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-5 form shadow p-2 p-md-4">
+          <h1 class="text-black">Emovieplan plus</h1>
+          <h1>Log-In</h1>
+          <ul class="list-unstyled">
+            <li>
+              <input type="phone" id="phone" placeholder="Phone number">
+            </li>
+            <li>
+              <input type="userName" id="userName" placeholder="User Name">
+            </li>
+            <li>
+              <input type="password" id="password" placeholder="Password">
+            </li>
+          </ul>
+          <p>Are you a memner ? <a href="index.html">Sign Up</a></p>
+           <button onclick="login()">Log In</button>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+
+         function login(){
+         let phone    = document.getElementById("phone").value;
+         let userName = document.getElementById("userName").value;
+         let password = document.getElementById("password").value;
+         
+         let storagePhone    = sessionStorage.getItem("Phone");
+         let storageUser     = sessionStorage.getItem("Username");
+         let storagePassword = sessionStorage.getItem("password");
+
+         	if (phone !== storagePhone) {
+         		alert("phone number not match");
+         	}else if(userName !== storageUser){
+         		alert("User Name not found");
+         	}else if(password !== storagePassword){
+         		alert("password is not match")
+         	}else{
+         		sessionStorage.setItem("login", true);
+         		window.location.href = "userProfile.html";
+         	}
+         }
+      </script>
+    </div>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
